@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.DerbyDialect</property>
+    <property name="hibernate.connection.driver_class">org.apache.derby.jdbc.ClientDriver</property>
+    <property name="hibernate.connection.url">jdbc:derby://localhost:1527/Waplj_prosjekt</property>
+    <property name="hibernate.connection.username">waplj</property>
+    <property name="hibernate.connection.password">waplj</property>
+    <mapping resource="Modell/Utkjoring.hbm.xml"/>
+    <mapping resource="Modell/Ordre.hbm.xml"/>
+    <mapping resource="Modell/Retter.hbm.xml"/>
+    <mapping resource="Modell/Sjoforer.hbm.xml"/>
+    <mapping resource="Modell/Selskaper.hbm.xml"/>
+    <mapping resource="Modell/Bruker.hbm.xml"/>
+    <mapping resource="Modell/Selgere.hbm.xml"/>
+    <mapping resource="Modell/Kunde.hbm.xml"/>
+    <mapping resource="Modell/Administrator.hbm.xml"/>
+    <mapping resource="Modell/Annet.hbm.xml"/>
+    <mapping resource="Modell/Utkjoringsbil.hbm.xml"/>
+    <mapping resource="Modell/Ordretabell.hbm.xml"/>
+    <mapping resource="Modell/Bosted.hbm.xml"/>
+    <mapping resource="Modell/Selskapkunde.hbm.xml"/>
+    <mapping resource="Modell/Rolle.hbm.xml"/>
+    <mapping resource="Modell/Salg.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
