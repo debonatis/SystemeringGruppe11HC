@@ -1,33 +1,26 @@
-BODY {
-    PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: #fff; PADDING-BOTTOM: 0px; MARGIN: 0px; FONT: small/1.5em Georgia,Serif; COLOR: #000; PADDING-TOP: 0px; voice-family: inherit
+root { 
+    display: block;
 }
-UNKNOWN {
-    FONT-SIZE: small
+
+body {
+    font-family: “Lucida Grande”, sans-serif;
+    font-size: 10.4px;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: normal;
+    letter-spacing: normal;
+    line-height: 1.5em;
+    color: #3a4f54;
+    background-color: #dfecf1;
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    BACKGROUND: #fff;
+    PADDING-BOTTOM: 0px;
+    MARGIN: 0px;
+    
+
 }
-#header {
-    FONT-SIZE: 93%; BACKGROUND: url(bg.gif) #dae0d2 repeat-x 50% bottom; FLOAT: left; WIDTH: 100%; LINE-HEIGHT: normal
-}
-#header UL {
-    PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 10px; LIST-STYLE-TYPE: none
-}
-#header LI {
-    PADDING-RIGHT: 0px; PADDING-LEFT: 9px; BACKGROUND: url(left.gif) no-repeat left top; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
-}
-#header A {
-    PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 6px; FONT-WEIGHT: bold; BACKGROUND: url(right.gif) no-repeat right top; FLOAT: left; PADDING-BOTTOM: 4px; COLOR: #765; PADDING-TOP: 5px; TEXT-DECORATION: none
-}
-#header A {
-    FLOAT: none
-}
-#header A:hover {
-    COLOR: #333
-}
-#header #current {
-    BACKGROUND-IMAGE: url(left_on.gif)
-}
-#header #current A {
-    BACKGROUND-IMAGE: url(right_on.gif); PADDING-BOTTOM: 5px; COLOR: #333
-}
+
 a {
     color: #e33b06;
 }
