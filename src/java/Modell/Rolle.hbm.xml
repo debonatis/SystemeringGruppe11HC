@@ -3,13 +3,14 @@
 <!-- Generated 13.mar.2013 20:07:46 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
   <class name="Modell.Rolle" schema="WAPLJ" table="ROLLE">
-    <composite-id class="Modell.Rolle" name="id">
-      <key-property name="brukernavn" type="string">
+    
+      <id name="brukernavn" type="string">
         <column length="10" name="BRUKERNAVN"/>
-      </key-property>
-      <key-property name="rollen" type="string">
+        <generator class="assigned"/>
+      </id>
+      <property name="rollen" type="string">
         <column length="10" name="ROLLEN"/>
-      </key-property>
-    </composite-id>
+      </property>
+    
   </class>
 </hibernate-mapping>
