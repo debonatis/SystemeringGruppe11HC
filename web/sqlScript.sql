@@ -36,7 +36,7 @@ CONSTRAINT Bosted_PK PRIMARY KEY(postnummer)
 CREATE TABLE rolle (
 brukernavn CHAR(10), --(FK1 - BRUKER)
 rollen CHAR(10)  NOT NULL, 
-CONSTRAINT rolle_PK PRIMARY KEY(brukernavn, rollen)
+CONSTRAINT rolle_PK PRIMARY KEY(brukernavn)
 );
 
 CREATE TABLE selskaper (
