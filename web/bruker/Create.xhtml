@@ -3,7 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -40,6 +42,20 @@
                 <br />
                 <br />
                 <h:link outcome="/index" value="#{bundle.CreateBrukerIndexLink}"/>
+                <p:growl id="messages"/>
+                <h3>Plain Menu</h3> 
+
+                <p:menu>  
+                    <p:submenu label="Menu">  
+                        <p:menuitem value="#{bundle.CreateBrukerSaveLink}" actionListener="#{brukerController.create}" update="messages" />  
+                        <p:menuitem value="#{bundle.CreateBrukerShowAllLink}" actionListener="#{brukerController.prepareList}" update="messages" />  
+                    </p:submenu>         
+                    <p:submenu label="Navigations">  
+                        <p:menuitem value="External" url="http://www.primefaces.org" />  
+                        <p:menuitem value="Internal" outcome="/mobile/index" />  
+                    </p:submenu>  
+                </p:menu>  
+
             </h:form>
         </ui:define>
     </ui:composition>

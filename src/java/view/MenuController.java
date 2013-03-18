@@ -15,7 +15,7 @@ import org.primefaces.model.MenuModel;
  *
  * @author deb
  */
-@ManagedBean(name = "MenuController")
+@ManagedBean(name = "menuController")
 @SessionScoped
 public class MenuController {
      private MenuModel model;  
