@@ -35,7 +35,7 @@ public class RolleController implements Serializable {
     public Rolle getSelected() {
         if (current == null) {
             current = new Rolle();
-            current.setId(new Modell.RolleId());
+            current.setId(new Modell.Rolle());
             selectedItemIndex = -1;
         }
         return current;
@@ -75,7 +75,7 @@ public class RolleController implements Serializable {
 
     public String prepareCreate() {
         current = new Rolle();
-        current.setId(new Modell.RolleId());
+        current.setId(new Modell.Rolle());
         selectedItemIndex = -1;
         return "Create";
     }
@@ -204,16 +204,16 @@ public class RolleController implements Serializable {
             return controller.ejbFacade.find(getKey(value));
         }
 
-        Modell.RolleId getKey(String value) {
-            Modell.RolleId key;
+        Modell.Rolle getKey(String value) {
+            Modell.Rolle key;
             String values[] = value.split(SEPARATOR_ESCAPED);
-            key = new Modell.RolleId();
+            key = new Modell.Rolle();
             key.setBrukernavn(values[0]);
             key.setRollen(values[1]);
             return key;
         }
 
-        String getStringKey(Modell.RolleId value) {
+        String getStringKey(Modell.Rolle value) {
             StringBuffer sb = new StringBuffer();
             sb.append(value.getBrukernavn());
             sb.append(SEPARATOR);

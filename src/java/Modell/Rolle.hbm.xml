@@ -1,16 +1,15 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 13.mar.2013 20:07:46 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="Modell.Rolle" table="ROLLE" schema="WAPLJ">
-        <composite-id name="id" class="Modell.RolleId">
-            <key-property name="brukernavn" type="string">
-                <column name="BRUKERNAVN" length="10" />
-            </key-property>
-            <key-property name="rollen" type="string">
-                <column name="ROLLEN" length="10" />
-            </key-property>
-        </composite-id>
-    </class>
+  <class name="Modell.Rolle" schema="WAPLJ" table="ROLLE">
+    <composite-id class="Modell.Rolle" name="id">
+      <key-property name="brukernavn" type="string">
+        <column length="10" name="BRUKERNAVN"/>
+      </key-property>
+      <key-property name="rollen" type="string">
+        <column length="10" name="ROLLEN"/>
+      </key-property>
+    </composite-id>
+  </class>
 </hibernate-mapping>
