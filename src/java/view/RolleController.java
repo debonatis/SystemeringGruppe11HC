@@ -35,7 +35,7 @@ public class RolleController implements Serializable {
     public Rolle getSelected() {
         if (current == null) {
             current = new Rolle();
-            current.setId(new Modell.Rolle());
+            
             selectedItemIndex = -1;
         }
         return current;
@@ -74,8 +74,7 @@ public class RolleController implements Serializable {
     }
 
     public String prepareCreate() {
-        current = new Rolle();
-        current.setId(new Modell.Rolle());
+        current = new Rolle();        
         selectedItemIndex = -1;
         return "Create";
     }
@@ -213,11 +212,9 @@ public class RolleController implements Serializable {
             return key;
         }
 
-        String getStringKey(Modell.Rolle value) {
+        String getStringKey(String value) {
             StringBuffer sb = new StringBuffer();
-            sb.append(value.getBrukernavn());
-            sb.append(SEPARATOR);
-            sb.append(value.getRollen());
+            sb.append(value);            
             return sb.toString();
         }
 
@@ -227,7 +224,7 @@ public class RolleController implements Serializable {
             }
             if (object instanceof Rolle) {
                 Rolle o = (Rolle) object;
-                return getStringKey(o.getId());
+                return getStringKey(o.getBrukernavn());
             } else {
                 throw new IllegalArgumentException("object " + object + " is of type " + object.getClass().getName() + "; expected type: " + Rolle.class.getName());
             }
