@@ -56,4 +56,8 @@ public class JsfUtil {
         String theId = JsfUtil.getRequestParameter(requestParameterName);
         return converter.getAsObject(FacesContext.getCurrentInstance(), component, theId);
     }
+    public static void addMessage(String summary) {  
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);  
+        FacesContext.getCurrentInstance().addMessage(null, message);  
+    } 
 }

@@ -17,6 +17,10 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import org.primefaces.component.menuitem.MenuItem;
+import org.primefaces.component.submenu.Submenu;
+import org.primefaces.model.DefaultMenuModel;
+import org.primefaces.model.MenuModel;
 
 @ManagedBean(name = "brukerController")
 @SessionScoped
@@ -28,8 +32,41 @@ public class BrukerController implements Serializable {
     private Controller.BrukerFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private MenuModel model;
 
     public BrukerController() {
+        model = new DefaultMenuModel();
+
+        //First submenu  
+        Submenu submenu = new Submenu();
+        submenu.setLabel("Dynamic Submenu 1");
+
+        MenuItem item = new MenuItem();
+        item.setValue("Dynamic Menuitem 1.1");
+        item.setUrl("#");
+        submenu.getChildren().add(item);
+
+        model.addSubmenu(submenu);
+
+        //Second submenu  
+        submenu = new Submenu();
+        submenu.setLabel("Dynamic Submenu 2");
+
+        item = new MenuItem();
+        item.setValue("Dynamic Menuitem 2.1");
+        item.setUrl("#");
+        submenu.getChildren().add(item);
+
+        item = new MenuItem();
+        item.setValue("Dynamic Menuitem 2.2");
+        item.setUrl("#");
+        submenu.getChildren().add(item);
+
+        model.addSubmenu(submenu);
+    }
+
+    public MenuModel getModel() {
+        return model;
     }
 
     public Bruker getSelected() {
