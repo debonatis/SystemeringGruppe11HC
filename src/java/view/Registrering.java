@@ -73,7 +73,7 @@ public class Registrering implements Serializable{
         this.bosted = bosted;
     }
 
-    public void save(ActionEvent actionEvent) {
+    public void save() {
 
         //bostedFacade.create(bosted);
         brukerFacade.create(bruker);
