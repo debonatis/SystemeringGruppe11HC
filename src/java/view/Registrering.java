@@ -11,13 +11,14 @@ import Modell.Bosted;
 import Modell.Bruker;
 import Modell.Rolle;
 import java.awt.event.ActionEvent;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
-import javax.inject.Named;
-import javax.enterprise.context.Dependent;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import org.primefaces.event.FlowEvent;
 import view.util.JsfUtil;
 
@@ -26,8 +27,8 @@ import view.util.JsfUtil;
  * @author deb
  */
 @Named(value = "registrering")
-@Dependent
-public class Registrering {
+@SessionScoped
+public class Registrering implements Serializable{
 
     @EJB
     private BostedFacade bostedFacade;
