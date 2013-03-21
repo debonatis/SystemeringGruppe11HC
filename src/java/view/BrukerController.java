@@ -19,7 +19,7 @@ import view.util.PaginationHelper;
 
 @ManagedBean(name = "brukerController")
 @SessionScoped
-public class BrukerController implements Serializable {
+public class BrukerController implements InterBrukerController {
 
     private Bruker current;
     private DataModel items = null;
@@ -31,6 +31,7 @@ public class BrukerController implements Serializable {
     public BrukerController() {
     }
 
+    @Override
     public Bruker getSelected() {
         if (current == null) {
             current = new Bruker();
@@ -39,10 +40,15 @@ public class BrukerController implements Serializable {
         return current;
     }
 
+    protected void setCurrent(Bruker current) {
+        this.current = current;
+    }
+
     private BrukerFacade getFacade() {
         return ejbFacade;
     }
 
+    @Override
     public PaginationHelper getPagination() {
         if (pagination == null) {
             pagination = new PaginationHelper(10) {
@@ -60,23 +66,27 @@ public class BrukerController implements Serializable {
         return pagination;
     }
 
+    @Override
     public String prepareList() {
         recreateModel();
         return "List";
     }
 
+    @Override
     public String prepareView() {
         current = (Bruker) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
+    @Override
     public String prepareCreate() {
         current = new Bruker();
         selectedItemIndex = -1;
         return "Create";
     }
 
+    @Override
     public String create() {
         try {
             getFacade().create(current);
@@ -89,12 +99,14 @@ public class BrukerController implements Serializable {
         }
     }
 
+    @Override
     public String prepareEdit() {
         current = (Bruker) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
 
+    @Override
     public String update() {
         try {
             getFacade().edit(current);
@@ -107,6 +119,7 @@ public class BrukerController implements Serializable {
         }
     }
 
+    @Override
     public String destroy() {
         current = (Bruker) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
@@ -116,6 +129,7 @@ public class BrukerController implements Serializable {
         return "List";
     }
 
+    @Override
     public String destroyAndView() {
         performDestroy();
         recreateModel();
@@ -154,6 +168,7 @@ public class BrukerController implements Serializable {
         }
     }
 
+    @Override
     public DataModel getItems() {
         if (items == null) {
             items = getPagination().createPageDataModel();
@@ -169,22 +184,26 @@ public class BrukerController implements Serializable {
         pagination = null;
     }
 
+    @Override
     public String next() {
         getPagination().nextPage();
         recreateModel();
         return "List";
     }
 
+    @Override
     public String previous() {
         getPagination().previousPage();
         recreateModel();
         return "List";
     }
 
+    @Override
     public SelectItem[] getItemsAvailableSelectMany() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
     }
 
+    @Override
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }

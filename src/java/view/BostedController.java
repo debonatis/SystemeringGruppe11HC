@@ -27,6 +27,10 @@ public class BostedController implements Serializable {
     @EJB
     private Controller.BostedFacade ejbFacade;
     private PaginationHelper pagination;
+
+    protected void setCurrent(Bosted current) {
+        this.current = current;
+    }
     private int selectedItemIndex;
 
     public BostedController() {

@@ -19,7 +19,7 @@ import view.util.PaginationHelper;
 
 @ManagedBean(name = "rolleController")
 @SessionScoped
-public class RolleController implements Serializable {
+public class RolleController implements InterRolleController {
 
     private Rolle current;
     private DataModel items = null;
@@ -31,6 +31,7 @@ public class RolleController implements Serializable {
     public RolleController() {
     }
 
+    @Override
     public Rolle getSelected() {
         if (current == null) {
             current = new Rolle();
@@ -40,10 +41,15 @@ public class RolleController implements Serializable {
         return current;
     }
 
+    protected void setCurrent(Rolle current) {
+        this.current = current;
+    }
+
     private RolleFacade getFacade() {
         return ejbFacade;
     }
 
+    @Override
     public PaginationHelper getPagination() {
         if (pagination == null) {
             pagination = new PaginationHelper(10) {
@@ -61,23 +67,27 @@ public class RolleController implements Serializable {
         return pagination;
     }
 
+    @Override
     public String prepareList() {
         recreateModel();
         return "List";
     }
 
+    @Override
     public String prepareView() {
         current = (Rolle) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
+    @Override
     public String prepareCreate() {
         current = new Rolle();        
         selectedItemIndex = -1;
         return "Create";
     }
 
+    @Override
     public String create() {
         try {
             getFacade().create(current);
@@ -89,12 +99,14 @@ public class RolleController implements Serializable {
         }
     }
 
+    @Override
     public String prepareEdit() {
         current = (Rolle) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
 
+    @Override
     public String update() {
         try {
             getFacade().edit(current);
@@ -106,6 +118,7 @@ public class RolleController implements Serializable {
         }
     }
 
+    @Override
     public String destroy() {
         current = (Rolle) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
@@ -115,6 +128,7 @@ public class RolleController implements Serializable {
         return "List";
     }
 
+    @Override
     public String destroyAndView() {
         performDestroy();
         recreateModel();
@@ -152,6 +166,7 @@ public class RolleController implements Serializable {
         }
     }
 
+    @Override
     public DataModel getItems() {
         if (items == null) {
             items = getPagination().createPageDataModel();
@@ -167,22 +182,26 @@ public class RolleController implements Serializable {
         pagination = null;
     }
 
+    @Override
     public String next() {
         getPagination().nextPage();
         recreateModel();
         return "List";
     }
 
+    @Override
     public String previous() {
         getPagination().previousPage();
         recreateModel();
         return "List";
     }
 
+    @Override
     public SelectItem[] getItemsAvailableSelectMany() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), false);
     }
 
+    @Override
     public SelectItem[] getItemsAvailableSelectOne() {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
