@@ -4,12 +4,16 @@
  */
 package view;
 
+import Controller.BostedFacade;
+import Controller.BrukerFacade;
+import Controller.RolleFacade;
 import Modell.Bosted;
 import Modell.Bruker;
 import Modell.Rolle;
 import java.awt.event.ActionEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.Dependent;
 import javax.faces.application.FacesMessage;
@@ -25,41 +29,59 @@ import view.util.JsfUtil;
 @Dependent
 public class Registrering {
 
-    private BrukerController bruker = new BrukerController();
-    private RolleController rolle = new RolleController();
-    private BostedController bosted = new BostedController();
+    @EJB
+    private BostedFacade bostedFacade;
+    @EJB
+    private RolleFacade rolleFacade;
+    @EJB
+    private BrukerFacade brukerFacade;
+    private Bruker bruker = new Bruker();
+    private Rolle rolle = new Rolle();
+    private Bosted bosted = new Bosted();
     private boolean skip;
     private static final Logger logger = Logger.getLogger(Registrering.class.getName());
-    
-     public Bruker getUser() {  
-        return bruker.getSelected();  
-    }  
-  
-    public void setUser(Bruker bruker) {  
-        this.bruker.setCurrent(bruker);  
+
+    private void prepareCreate() {
+
+        bruker = new Bruker();
+        rolle = new Rolle();
+        bosted = new Bosted();
     }
-     public Rolle getRolle() {  
-        return rolle.getSelected();  
-    }  
-  
-    public void setRolle(Rolle rolle) {  
-        this.rolle.setCurrent(rolle);  
+
+    public Bruker getBruker() {
+        return bruker;
     }
-    
-    public Bosted getBosted(){
-        return bosted.getSelected();
+
+    public void setBruker(Bruker bruker) {
+        this.bruker = bruker;
     }
-    
-    public void setBosted(Bosted bosted){
-        this.bosted.setCurrent(bosted);
+
+    public Rolle getRolle() {
+        return rolle;
+    }
+
+    public void setRolle(Rolle rolle) {
+        this.rolle = rolle;
+    }
+
+    public Bosted getBosted() {
+        return bosted;
+    }
+
+    public void setBosted(Bosted bosted) {
+        this.bosted = bosted;
     }
 
     public void save(ActionEvent actionEvent) {
-        bruker.create();
-        rolle.create();
-        bosted.create();
-        FacesMessage msg = new FacesMessage("Successful", "Welcome :" + bruker.getSelected().getFornavn());
-        JsfUtil.addMessage("Welcome :" + bruker.getSelected().getFornavn());
+
+        bostedFacade.create(bosted);
+        brukerFacade.create(bruker);
+        rolleFacade.create(rolle);
+        prepareCreate();
+
+
+        FacesMessage msg = new FacesMessage("Successful", "Welcome :" + bruker.getFornavn());
+        JsfUtil.addMessage("Welcome :" + bruker.getFornavn());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
