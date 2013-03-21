@@ -60,14 +60,14 @@
                             <h:panelGrid columns="2" columnClasses="label, value" styleClass="grid">  
                                 <h:outputText value="Firstname: *" />  
                                 <p:inputText required="true" label="Firstname"  
-                                             value="#{registrering.user.fornavn}" />  
+                                             value="#{registrering.bruker.fornavn}" />  
 
                                 <h:outputText value="Lastname: *" />  
                                 <p:inputText required="true" label="Lastname"  
-                                             value="#{registrering.user.etternavn}" />  
+                                             value="#{registrering.bruker.etternavn}" />  
 
                                 <h:outputText value="Username: " />  
-                                <p:inputText value="#{registrering.user.brukernavn}" /> 
+                                <p:inputText value="#{registrering.bruker.brukernavn}" /> 
 
                                
 
@@ -87,13 +87,13 @@
 
                             <h:panelGrid columns="2" columnClasses="label, value">  
                                  <h:outputText value="Street address: " />  
-                                 <p:inputText value="#{registrering.user.adresse}" />
+                                 <p:inputText value="#{registrering.bruker.adresse}" />
 
                                 <h:outputText value="City " />  
                                 <p:inputText value="#{registrering.bosted.poststed}" />
 
                                 <h:outputText value="ZIP-code: " />  
-                                <p:inputText value="#{registrering.user.postnummer}" /> 
+                                <p:inputText value="#{registrering.bruker.postnummer}" /> 
 
                                 <h:outputText value="Skip to last: " />  
                                 <h:selectBooleanCheckbox value="#{registrering.skip}" />  
@@ -109,10 +109,10 @@
                             <h:panelGrid columns="2" columnClasses="label, value">  
                                 <h:outputText value="Email: *" />  
                                 <p:inputText required="true" label="Email"  
-                                             value="#{registrering.user.email}" />  
+                                             value="#{registrering.bruker.email}" />  
 
                                 <h:outputText value="Phone: " />  
-                                <p:inputText value="#{registrering.user.telefon}"/>  
+                                <p:inputText value="#{registrering.bruker.telefon}"/>  
 
                                 
                             </h:panelGrid>  
@@ -125,21 +125,21 @@
                             <h:panelGrid id="confirmation" columns="6">  
                                 <h:outputText value="Firstname: " />  
                                 <h:outputText styleClass="outputLabel"  
-                                              value="#{registrering.user.fornavn}" />  
+                                              value="#{registrering.bruker.fornavn}" />  
 
                                 <h:outputText value="Lastname: " />  
                                 <h:outputText  styleClass="outputLabel"  
-                                               value="#{registrering.user.etternavn}"/>  
+                                               value="#{registrering.bruker.etternavn}"/>  
 
                                 
 
                                 <h:outputText value="Street: " />  
                                 <h:outputText styleClass="outputLabel"  
-                                              value="#{registrering.user.adresse}" />  
+                                              value="#{registrering.bruker.adresse}" />  
 
                                 <h:outputText value="Postal Code: " />  
                                 <h:outputText styleClass="outputLabel"  
-                                              value="#{registrering.user.postnummer}" />  
+                                              value="#{registrering.bruker.postnummer}" />  
 
                                 <h:outputText value="City: " />  
                                 <h:outputText styleClass="outputLabel"  
@@ -147,15 +147,15 @@
 
                                 <h:outputText value="Email: " />  
                                 <h:outputText styleClass="outputLabel"  
-                                              value="#{registrering.user.email}" />  
+                                              value="#{registrering.bruker.email}" />  
 
                                 <h:outputText value="Phone " />  
                                 <h:outputText styleClass="outputLabel"  
-                                              value="#{registrering.user.telefon}"/>  
+                                              value="#{registrering.bruker.telefon}"/>  
 
                                 <h:outputText value="Username: " />  
                                 <h:outputText styleClass="outputLabel"  
-                                              value="#{registrering.user.brukernavn}" />  
+                                              value="#{registrering.bruker.brukernavn}" />  
 
                                 <h:outputText />  
                                 <h:outputText />  
