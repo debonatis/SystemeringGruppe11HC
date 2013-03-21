@@ -75,7 +75,7 @@ public class Registrering implements Serializable{
 
     public void save(ActionEvent actionEvent) {
 
-        bostedFacade.create(bosted);
+        //bostedFacade.create(bosted);
         brukerFacade.create(bruker);
         rolleFacade.create(rolle);
         prepareCreate();
@@ -99,7 +99,7 @@ public class Registrering implements Serializable{
         logger.log(Level.INFO, "Next step:{0}", event.getNewStep());
 
         if (skip) {
-            skip = false;   //reset in case user goes back  
+            skip = false;    
             return "confirm";
         } else {
             return event.getNewStep();
