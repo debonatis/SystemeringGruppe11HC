@@ -11,8 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.GET;
 import javax.ws.rs.Produces;
-import org.netbeans.saas.google.GoogleMapService;
-import org.netbeans.saas.RestResponse;
+
 
 /**
  *

@@ -78,12 +78,13 @@ public class Registrering implements Serializable{
         //bostedFacade.create(bosted);
         brukerFacade.create(bruker);
         rolleFacade.create(rolle);
-        prepareCreate();
+        
 
 
         FacesMessage msg = new FacesMessage("Successful", "Welcome :" + bruker.getFornavn());
         JsfUtil.addMessage("Welcome :" + bruker.getFornavn());
         FacesContext.getCurrentInstance().addMessage(null, msg);
+        prepareCreate();
     }
 
     public boolean isSkip() {
