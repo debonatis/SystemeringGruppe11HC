@@ -67,11 +67,25 @@
                                              value="#{registrering.bruker.etternavn}" />  
 
                                 <h:outputText value="Username: " />  
-                                <p:inputText value="#{registrering.bruker.brukernavn}" /> 
+                                <p:inputText id="brukernavn" value="#{registrering.bruker.brukernavn}" /> 
+                                
 
+                                
+                                <h:outputLabel for="sjekkpassord" value="Password:"/><br/>
+                                <h:inputSecret id="sjekkpassord" binding="#{passwordComponent}" value="#{registrering.bruker.passord}" >
+                                    <f:validator validatorId="validatorTekst2" />
+                                </h:inputSecret> <br/>
+                                <p:message for="sjekkpassord" /><br/>
+                                <h:outputLabel for="confirmPassword" value="Confirm Password: " /><br/>
+                                <h:inputSecret id="confirmPassword" required="#{not empty passwordComponent.value}">
+                                    <f:validator validatorId="validatorTekst" />
+                                    <f:attribute name="passwordComponent" value="#{passwordComponent}" />
+                                </h:inputSecret>
+                                <h:message for="confirmPassword" /><br/>
+                                <h:outputText value="" />
                                
 
-                                                         
+
 
 
                                 <h:outputText value="Skip to last: " />  
@@ -86,14 +100,14 @@
                             <h:messages errorClass="error"/>  
 
                             <h:panelGrid columns="2" columnClasses="label, value">  
-                                 <h:outputText value="Street address: " />  
-                                 <p:inputText value="#{registrering.bruker.adresse}" />
+                                <h:outputText value="Street address: " />  
+                                <p:inputText value="#{registrering.bruker.adresse}" />
 
                                 <h:outputText value="City " />  
                                 <p:inputText value="#{registrering.bosted.poststed}" />
 
                                 <h:outputText value="ZIP-code: " />  
-                                <p:inputText value="#{registrering.bruker.postnummer}" /> 
+                                <p:inputText value="#{registrering.bosted.postnummer}" /> 
 
                                 <h:outputText value="Skip to last: " />  
                                 <h:selectBooleanCheckbox value="#{registrering.skip}" />  
@@ -114,7 +128,7 @@
                                 <h:outputText value="Phone: " />  
                                 <p:inputText value="#{registrering.bruker.telefon}"/>  
 
-                                
+
                             </h:panelGrid>  
                         </p:panel>  
                     </p:tab>  
@@ -131,7 +145,7 @@
                                 <h:outputText  styleClass="outputLabel"  
                                                value="#{registrering.bruker.etternavn}"/>  
 
-                                
+
 
                                 <h:outputText value="Street: " />  
                                 <h:outputText styleClass="outputLabel"  

@@ -75,7 +75,7 @@ public class Registrering implements Serializable{
 
     public void save() {
 
-        //bostedFacade.create(bosted);
+        bostedFacade.create(bosted);
         brukerFacade.create(bruker);
         rolleFacade.create(rolle);
         
