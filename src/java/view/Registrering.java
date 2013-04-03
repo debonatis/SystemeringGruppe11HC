@@ -10,14 +10,11 @@ import Controller.RolleFacade;
 import Modell.Bosted;
 import Modell.Bruker;
 import Modell.Rolle;
-import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import org.primefaces.event.FlowEvent;
 import view.util.JsfUtil;
@@ -78,13 +75,15 @@ public class Registrering implements Serializable{
         bruker.setPostnummer(bosted.getPostnummer());
         bostedFacade.create(bosted);
         brukerFacade.create(bruker);
+        rolle.setBrukernavn(bruker.getBrukernavn());
+        rolle.setRollen("customer");
         rolleFacade.create(rolle);
         
 
 
-        FacesMessage msg = new FacesMessage("Successful", "Welcome :" + bruker.getFornavn());
+       
         JsfUtil.addMessage("Welcome :" + bruker.getFornavn());
-        FacesContext.getCurrentInstance().addMessage(null, msg);
+       
         prepareCreate();
     }
 

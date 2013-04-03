@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+
+        </ui:define>
+        <ui:define name="sideBar">
+            <h:form>
+                <p:growl id="messages"/>
+                <p:menu>                        
+                    <p:submenu label="Navigations">  
+                        <p:menuitem value="External" url="http://www.vg.no" />  
+                        <p:menuitem value="Home" outcome="/index" />
+                        <p:menuitem outcome="/administrator/List" value="Show All Administrator Items"/>
+
+                        <p:menuitem outcome="/annet/List" value="Show All Annet Items"/>
+
+                        <p:menuitem outcome="/bosted/List" value="Show All Bosted Items"/>
+
+                        <p:menuitem outcome="/bruker/List" value="Show All Bruker Items"/>
+
+                        <p:menuitem outcome="/kunde/List" value="Show All Kunde Items"/>
+
+                        <p:menuitem outcome="/ordre/List" value="Show All Ordre Items"/>
+
+                        <p:menuitem outcome="/ordretabell/List" value="Show All Ordretabell Items"/>
+
+                        <p:menuitem outcome="/retter/List" value="Show All Retter Items"/>
+
+                        <p:menuitem outcome="/rolle/List" value="Show All Rolle Items"/>
+
+                        <p:menuitem outcome="/salg/List" value="Show All Salg Items"/>
+                    </p:submenu>  
+                </p:menu> 
+            </h:form>
+        </ui:define>
+        <ui:define name="body">
+            <h:form id="bestillingForm">  
+
+                <p:fieldset legend="tilgjengelige retter">  
+                    <p:dataTable id="availableCars" var="rett" value="#{.items}">  
+                        <p:column style="width:20px">  
+                            <h:outputText id="dragIcon"  
+                                          styleClass="ui-icon ui-icon-arrow-4" />  
+                            <p:draggable for="dragIcon" revert="true" />  
+                        </p:column>  
+
+                        <p:column headerText="Dish number: ">  
+                            <h:outputText value="#{rett.rettnummer}" />  
+                        </p:column>  
+
+                        <p:column headerText="Name">  
+                            <h:outputText value="#{rett.navn}" />  
+                        </p:column>  
+
+                        <p:column headerText="Description">  
+                            <h:outputText value="#{rett.beskrivelse}" />  
+                        </p:column>  
+
+                        <p:column headerText="Ingredients">  
+                            <h:outputText value="#{rett.ingredienser}" />  
+                        </p:column>  
+                        
+                         <p:column headerText="Calories">  
+                            <h:outputText value="#{rett.kalorier}" />  
+                        </p:column>  
+                        
+                         <p:column headerText="Weight">  
+                            <h:outputText value="#{rett.vekt}" />  
+                        </p:column>  
+                        
+                         <p:column headerText="Price">  
+                            <h:outputText value="#{rett.pris}" />  
+                        </p:column>  
+                    </p:dataTable>  
+                </p:fieldset>  
+
+                <p:fieldset id="selectedRett" legend="Selected Dishes" style="margin-top:20px">  
+                    <p:outputPanel id="dropArea">  
+                        <h:outputText value="!!!Drop here!!!"  
+                                      rendered="#{empty tableBean.droppedCars}"  
+                                      style="font-size:24px;" />  
+
+                        <p:dataTable var="car" value="#{tableBean.droppedCars}"   
+                                     rendered="#{not empty tableBean.droppedCars}">  
+
+                            <p:column headerText="Model">  
+                                <h:outputText value="#{car.model}" />  
+                            </p:column>  
+
+                            <p:column headerText="Year">  
+                                <h:outputText value="#{car.year}" />  
+                            </p:column>  
+
+                            <p:column headerText="Manufacturer">  
+                                <h:outputText value="#{car.manufacturer}" />  
+                            </p:column>  
+
+                            <p:column headerText="Color">  
+                                <h:outputText value="#{car.color}" />  
+                            </p:column>  
+
+                            <p:column style="width:32px">  
+                                <p:commandButton update=":carForm:display"  
+                                                 oncomplete="carDialog.show()"  
+                                                 icon="ui-icon-search">  
+                                    <f:setPropertyActionListener value="#{car}"  
+                                                                 target="#{tableBean.selectedCar}" />  
+                                </p:commandButton>  
+                            </p:column>  
+                        </p:dataTable>  
+                    </p:outputPanel>  
+                </p:fieldset>  
+
+                <p:droppable for="selectedCars" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availableCars" onDrop="handleDrop">  
+                    <p:ajax listener="#{tableBean.onCarDrop}" update="dropArea availableCars" />  
+                </p:droppable>  
+
+                <p:dialog header="Car Detail" widgetVar="carDialog" resizable="false" draggable="false"  
+                          width="200" showEffect="fade" hideEffect="fade" modal="true">  
+
+                    <h:panelGrid id="display" columns="2" cellpadding="4">  
+
+                        <f:facet name="header">  
+                            <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>  
+                        </f:facet>  
+
+                        <h:outputText value="Model:" />  
+                        <h:outputText value="#{tableBean.selectedCar.model}"/>  
+
+                        <h:outputText value="Year:" />  
+                        <h:outputText value="#{tableBean.selectedCar.year}"/>  
+
+                        <h:outputText value="Manufacturer:" />  
+                        <h:outputText value="#{tableBean.selectedCar.manufacturer}"/>  
+
+                        <h:outputText value="Color:" />  
+                        <h:outputText value="#{tableBean.selectedCar.color}"/>  
+                    </h:panelGrid>  
+                </p:dialog>  
+
+            </h:form>  
+
+        </ui:define>
+    </ui:composition>
+
+</html>
