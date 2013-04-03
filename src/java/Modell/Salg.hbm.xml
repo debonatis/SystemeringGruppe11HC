@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 03.apr.2013 13:49:44 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 03.apr.2013 14:31:55 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="Modell.Salg" table="salg" catalog="waplj">
         <id name="salgsnummer" type="string">

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 03.apr.2013 13:53:58 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 03.apr.2013 14:31:55 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="DBconf.UtkjoringsBil" table="utkjoringsBil" catalog="waplj">
+    <class name="Modell.UtkjoringsBil" table="utkjoringsBil" catalog="waplj">
         <id name="bilnr" type="java.lang.Integer">
             <column name="bilnr" />
             <generator class="identity" />

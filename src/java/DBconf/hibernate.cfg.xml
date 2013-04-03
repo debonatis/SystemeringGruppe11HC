@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://bamvpn.net:3306/waplj?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">waplj</property>
-    <property name="hibernate.connection.password">waplj</property>       
+    <property name="hibernate.connection.password">waplj</property>
     <mapping resource="Modell/Sjoforer.hbm.xml"/>
     <mapping resource="Modell/Bosted.hbm.xml"/>
     <mapping resource="Modell/Kunde.hbm.xml"/>
@@ -14,8 +14,8 @@
     <mapping resource="Modell/Retter.hbm.xml"/>
     <mapping resource="Modell/Ordre.hbm.xml"/>
     <mapping resource="Modell/Salg.hbm.xml"/>
-    <mapping resource="Modell/Annet.hbm.xml"/>
     <mapping resource="Modell/UtkjoringsBil.hbm.xml"/>
+    <mapping resource="Modell/Annet.hbm.xml"/>
     <mapping resource="Modell/Selskaper.hbm.xml"/>
     <mapping resource="Modell/Administrator.hbm.xml"/>
     <mapping resource="Modell/Selgere.hbm.xml"/>
