@@ -23,5 +23,21 @@
     <mapping resource="DBconf/UtkjoringsBil.hbm.xml"/>
     <mapping resource="DBconf/Selgere.hbm.xml"/>
     <mapping resource="DBconf/Bosted.hbm.xml"/>
+    <mapping resource="Modell/Sjoforer.hbm.xml"/>
+    <mapping resource="Modell/Bosted.hbm.xml"/>
+    <mapping resource="Modell/Kunde.hbm.xml"/>
+    <mapping resource="Modell/Ordretabell.hbm.xml"/>
+    <mapping resource="Modell/Retter.hbm.xml"/>
+    <mapping resource="Modell/Ordre.hbm.xml"/>
+    <mapping resource="Modell/Salg.hbm.xml"/>
+    <mapping resource="Modell/Annet.hbm.xml"/>
+    <mapping resource="Modell/UtkjoringsBil.hbm.xml"/>
+    <mapping resource="Modell/Selskaper.hbm.xml"/>
+    <mapping resource="Modell/Administrator.hbm.xml"/>
+    <mapping resource="Modell/Selgere.hbm.xml"/>
+    <mapping resource="Modell/Utkjoring.hbm.xml"/>
+    <mapping resource="Modell/Bruker.hbm.xml"/>
+    <mapping resource="Modell/Rolle.hbm.xml"/>
+    <mapping resource="Modell/SelskapKunde.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

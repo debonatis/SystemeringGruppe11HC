@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 03.apr.2013 13:18:08 by Hibernate Tools 3.2.1.GA -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03.apr.2013 13:49:44 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-  <class catalog="waplj" name="Modell.Administrator" table="administrator">
-    <id name="brukernavn" type="string">
-      <column length="10" name="brukernavn"/>
-      <generator class="assigned"/>
-    </id>
-  </class>
+    <class name="Modell.Administrator" table="administrator" catalog="waplj">
+        <id name="brukernavn" type="string">
+            <column name="brukernavn" length="10" />
+            <generator class="assigned" />
+        </id>
+    </class>
 </hibernate-mapping>

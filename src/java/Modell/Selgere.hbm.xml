@@ -1,23 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 03.apr.2013 13:18:08 by Hibernate Tools 3.2.1.GA -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03.apr.2013 13:49:44 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-  <class catalog="waplj" name="Modell.Selgere" table="selgere">
-    <id name="brukernavn" type="string">
-      <column length="10" name="brukernavn"/>
-      <generator class="assigned"/>
-    </id>
-    <property name="salgPerManed" type="string">
-      <column length="10" name="salgPerManed"/>
-    </property>
-    <property name="opparbeidetProvisjon" type="string">
-      <column length="10" name="opparbeidetProvisjon"/>
-    </property>
-    <property name="antSalg" type="string">
-      <column length="10" name="antSalg"/>
-    </property>
-    <property name="timer" type="string">
-      <column length="10" name="timer"/>
-    </property>
-  </class>
+    <class name="Modell.Selgere" table="selgere" catalog="waplj">
+        <id name="brukernavn" type="string">
+            <column name="brukernavn" length="10" />
+            <generator class="assigned" />
+        </id>
+        <property name="salgPerManed" type="string">
+            <column name="salgPerManed" length="10" />
+        </property>
+        <property name="opparbeidetProvisjon" type="string">
+            <column name="opparbeidetProvisjon" length="10" />
+        </property>
+        <property name="antSalg" type="string">
+            <column name="antSalg" length="10" />
+        </property>
+        <property name="timer" type="string">
+            <column name="timer" length="10" />
+        </property>
+    </class>
 </hibernate-mapping>

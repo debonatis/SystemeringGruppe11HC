@@ -1,21 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 03.apr.2013 13:18:08 by Hibernate Tools 3.2.1.GA -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03.apr.2013 13:49:44 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-  <class catalog="waplj" name="Modell.Ordretabell" table="ordretabell">
-    <composite-id class="Modell.OrdretabellId" name="id">
-      <key-property name="salgsnummer" type="string">
-        <column length="10" name="salgsnummer"/>
-      </key-property>
-      <key-property name="selgerbrukernavn" type="string">
-        <column length="10" name="selgerbrukernavn"/>
-      </key-property>
-      <key-property name="kundebrukernavn" type="string">
-        <column length="10" name="kundebrukernavn"/>
-      </key-property>
-    </composite-id>
-    <property name="rettnummer" type="string">
-      <column length="10" name="rettnummer" not-null="true"/>
-    </property>
-  </class>
+    <class name="Modell.Ordretabell" table="ordretabell" catalog="waplj">
+        <composite-id name="id" class="Modell.OrdretabellId">
+            <key-property name="salgsnummer" type="string">
+                <column name="salgsnummer" length="10" />
+            </key-property>
+            <key-property name="selgerbrukernavn" type="string">
+                <column name="selgerbrukernavn" length="10" />
+            </key-property>
+            <key-property name="kundebrukernavn" type="string">
+                <column name="kundebrukernavn" length="10" />
+            </key-property>
+        </composite-id>
+        <property name="rettnummer" type="string">
+            <column name="rettnummer" length="10" not-null="true" />
+        </property>
+    </class>
 </hibernate-mapping>

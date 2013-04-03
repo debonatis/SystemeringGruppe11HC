@@ -1,24 +1,25 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 03.apr.2013 13:18:08 by Hibernate Tools 3.2.1.GA -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03.apr.2013 13:49:44 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-  <class catalog="waplj" name="Modell.Utkjoring" table="utkjoring">
-    <composite-id class="Modell.UtkjoringId" name="id">
-      <key-property name="brukernavn" type="string">
-        <column length="10" name="brukernavn"/>
-      </key-property>
-      <key-property name="salgsnummer" type="string">
-        <column length="10" name="salgsnummer"/>
-      </key-property>
-      <key-property name="bilnr" type="int">
-        <column name="bilnr"/>
-      </key-property>
-      <key-property name="sjoforBrukernavn" type="string">
-        <column length="10" name="sjoforBrukernavn"/>
-      </key-property>
-    </composite-id>
-    <property name="utkorinKogstatus" type="string">
-      <column length="10" name="utkorinKogstatus"/>
-    </property>
-  </class>
+    <class name="Modell.Utkjoring" table="utkjoring" catalog="waplj">
+        <composite-id name="id" class="Modell.UtkjoringId">
+            <key-property name="brukernavn" type="string">
+                <column name="brukernavn" length="10" />
+            </key-property>
+            <key-property name="salgsnummer" type="string">
+                <column name="salgsnummer" length="10" />
+            </key-property>
+            <key-property name="bilnr" type="int">
+                <column name="bilnr" />
+            </key-property>
+            <key-property name="sjoforBrukernavn" type="string">
+                <column name="sjoforBrukernavn" length="10" />
+            </key-property>
+        </composite-id>
+        <property name="utkorinKogstatus" type="string">
+            <column name="utkorinKogstatus" length="10" />
+        </property>
+    </class>
 </hibernate-mapping>

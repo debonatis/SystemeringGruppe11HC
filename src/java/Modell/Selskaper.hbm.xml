@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 03.apr.2013 13:18:08 by Hibernate Tools 3.2.1.GA -->
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03.apr.2013 13:49:44 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-  <class catalog="waplj" name="Modell.Selskaper" table="selskaper">
-    <id name="selskapnr" type="java.lang.Integer">
-      <column name="selskapnr"/>
-      <generator class="identity"/>
-    </id>
-    <property name="avslag" type="java.lang.Integer">
-      <column name="avslag"/>
-    </property>
-    <property name="akkumulertSalg" type="java.lang.Integer">
-      <column name="akkumulertSalg"/>
-    </property>
-  </class>
+    <class name="Modell.Selskaper" table="selskaper" catalog="waplj">
+        <id name="selskapnr" type="java.lang.Integer">
+            <column name="selskapnr" />
+            <generator class="identity" />
+        </id>
+        <property name="avslag" type="java.lang.Integer">
+            <column name="avslag" />
+        </property>
+        <property name="akkumulertSalg" type="java.lang.Integer">
+            <column name="akkumulertSalg" />
+        </property>
+    </class>
 </hibernate-mapping>
