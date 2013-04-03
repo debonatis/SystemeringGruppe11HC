@@ -16,11 +16,9 @@
     <mapping resource="DBconf/Ordre.hbm.xml"/>
     <mapping resource="DBconf/Rolle.hbm.xml"/>
     <mapping resource="DBconf/Ordretabell.hbm.xml"/>
-    <mapping resource="DBconf/Retter.hbm.xml"/>
-    <mapping resource="DBconf/SelskapKunde.hbm.xml"/>
+    <mapping resource="DBconf/Retter.hbm.xml"/>    
     <mapping resource="DBconf/Salg.hbm.xml"/>
-    <mapping resource="DBconf/Kunde.hbm.xml"/>
-    <mapping resource="DBconf/UtkjoringsBil.hbm.xml"/>
+    <mapping resource="DBconf/Kunde.hbm.xml"/>    
     <mapping resource="DBconf/Selgere.hbm.xml"/>
     <mapping resource="DBconf/Bosted.hbm.xml"/>
     <mapping resource="Modell/Sjoforer.hbm.xml"/>
