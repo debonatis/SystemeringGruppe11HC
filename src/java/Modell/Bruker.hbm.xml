@@ -1,33 +1,32 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 13.mar.2013 20:07:46 by Hibernate Tools 3.2.1.GA -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 03.apr.2013 13:18:08 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="Modell.Bruker" table="BRUKER" schema="WAPLJ">
-        <id name="brukernavn" type="string">
-            <column name="BRUKERNAVN" length="10" />
-            <generator class="assigned" />
-        </id>
-        <property name="passord" type="string">
-            <column name="PASSORD" length="10" not-null="true" />
-        </property>
-        <property name="fornavn" type="string">
-            <column name="FORNAVN" length="10" not-null="true" />
-        </property>
-        <property name="etternavn" type="string">
-            <column name="ETTERNAVN" length="10" not-null="true" />
-        </property>
-        <property name="adresse" type="string">
-            <column name="ADRESSE" length="20" not-null="true" />
-        </property>
-        <property name="email" type="string">
-            <column name="EMAIL" length="30" not-null="true" />
-        </property>
-        <property name="telefon" type="int">
-            <column name="TELEFON" not-null="true" />
-        </property>
-        <property name="postnummer" type="java.lang.Integer">
-            <column name="POSTNUMMER" />
-        </property>
-    </class>
+  <class catalog="waplj" name="Modell.Bruker" table="bruker">
+    <id name="brukernavn" type="string">
+      <column length="10" name="brukernavn"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="passord" type="string">
+      <column length="10" name="passord" not-null="true"/>
+    </property>
+    <property name="fornavn" type="string">
+      <column length="10" name="fornavn" not-null="true"/>
+    </property>
+    <property name="etternavn" type="string">
+      <column length="10" name="etternavn" not-null="true"/>
+    </property>
+    <property name="adresse" type="string">
+      <column length="20" name="adresse" not-null="true"/>
+    </property>
+    <property name="email" type="string">
+      <column length="30" name="email" not-null="true"/>
+    </property>
+    <property name="telefon" type="int">
+      <column name="telefon" not-null="true"/>
+    </property>
+    <property name="postnummer" type="java.lang.Integer">
+      <column name="postnummer"/>
+    </property>
+  </class>
 </hibernate-mapping>

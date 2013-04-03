@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://bamvpn.net:3306/waplj?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">waplj</property>
+    <property name="hibernate.connection.password">waplj</property>
+    <mapping resource="DBconf/Sjoforer.hbm.xml"/>
+    <mapping resource="DBconf/Annet.hbm.xml"/>
+    <mapping resource="DBconf/Administrator.hbm.xml"/>
+    <mapping resource="DBconf/Utkjoring.hbm.xml"/>
+    <mapping resource="DBconf/Selskaper.hbm.xml"/>
+    <mapping resource="DBconf/Bruker.hbm.xml"/>
+    <mapping resource="DBconf/Ordre.hbm.xml"/>
+    <mapping resource="DBconf/Rolle.hbm.xml"/>
+    <mapping resource="DBconf/Ordretabell.hbm.xml"/>
+    <mapping resource="DBconf/Retter.hbm.xml"/>
+    <mapping resource="DBconf/SelskapKunde.hbm.xml"/>
+    <mapping resource="DBconf/Salg.hbm.xml"/>
+    <mapping resource="DBconf/Kunde.hbm.xml"/>
+    <mapping resource="DBconf/UtkjoringsBil.hbm.xml"/>
+    <mapping resource="DBconf/Selgere.hbm.xml"/>
+    <mapping resource="DBconf/Bosted.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

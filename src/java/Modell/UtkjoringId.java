@@ -1,5 +1,5 @@
 package Modell;
-// Generated 13.mar.2013 20:07:38 by Hibernate Tools 3.2.1.GA
+// Generated 03.apr.2013 13:17:58 by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
@@ -15,20 +15,20 @@ public class UtkjoringId  implements java.io.Serializable {
      private String brukernavn;
      private String salgsnummer;
      private int bilnr;
-     private String sjoforbrukernavn;
+     private String sjoforBrukernavn;
 
     public UtkjoringId() {
     }
 
-    public UtkjoringId(String brukernavn, String salgsnummer, int bilnr, String sjoforbrukernavn) {
+    public UtkjoringId(String brukernavn, String salgsnummer, int bilnr, String sjoforBrukernavn) {
        this.brukernavn = brukernavn;
        this.salgsnummer = salgsnummer;
        this.bilnr = bilnr;
-       this.sjoforbrukernavn = sjoforbrukernavn;
+       this.sjoforBrukernavn = sjoforBrukernavn;
     }
    
 
-    @Column(name="BRUKERNAVN", nullable=false, length=10)
+    @Column(name="brukernavn", nullable=false, length=10)
     public String getBrukernavn() {
         return this.brukernavn;
     }
@@ -37,7 +37,7 @@ public class UtkjoringId  implements java.io.Serializable {
         this.brukernavn = brukernavn;
     }
 
-    @Column(name="SALGSNUMMER", nullable=false, length=10)
+    @Column(name="salgsnummer", nullable=false, length=10)
     public String getSalgsnummer() {
         return this.salgsnummer;
     }
@@ -46,7 +46,7 @@ public class UtkjoringId  implements java.io.Serializable {
         this.salgsnummer = salgsnummer;
     }
 
-    @Column(name="BILNR", nullable=false)
+    @Column(name="bilnr", nullable=false)
     public int getBilnr() {
         return this.bilnr;
     }
@@ -55,13 +55,13 @@ public class UtkjoringId  implements java.io.Serializable {
         this.bilnr = bilnr;
     }
 
-    @Column(name="SJOFORBRUKERNAVN", nullable=false, length=10)
-    public String getSjoforbrukernavn() {
-        return this.sjoforbrukernavn;
+    @Column(name="sjoforBrukernavn", nullable=false, length=10)
+    public String getSjoforBrukernavn() {
+        return this.sjoforBrukernavn;
     }
     
-    public void setSjoforbrukernavn(String sjoforbrukernavn) {
-        this.sjoforbrukernavn = sjoforbrukernavn;
+    public void setSjoforBrukernavn(String sjoforBrukernavn) {
+        this.sjoforBrukernavn = sjoforBrukernavn;
     }
 
 
@@ -74,7 +74,7 @@ public class UtkjoringId  implements java.io.Serializable {
 		 return ( (this.getBrukernavn()==castOther.getBrukernavn()) || ( this.getBrukernavn()!=null && castOther.getBrukernavn()!=null && this.getBrukernavn().equals(castOther.getBrukernavn()) ) )
  && ( (this.getSalgsnummer()==castOther.getSalgsnummer()) || ( this.getSalgsnummer()!=null && castOther.getSalgsnummer()!=null && this.getSalgsnummer().equals(castOther.getSalgsnummer()) ) )
  && (this.getBilnr()==castOther.getBilnr())
- && ( (this.getSjoforbrukernavn()==castOther.getSjoforbrukernavn()) || ( this.getSjoforbrukernavn()!=null && castOther.getSjoforbrukernavn()!=null && this.getSjoforbrukernavn().equals(castOther.getSjoforbrukernavn()) ) );
+ && ( (this.getSjoforBrukernavn()==castOther.getSjoforBrukernavn()) || ( this.getSjoforBrukernavn()!=null && castOther.getSjoforBrukernavn()!=null && this.getSjoforBrukernavn().equals(castOther.getSjoforBrukernavn()) ) );
    }
    
    public int hashCode() {
@@ -83,7 +83,7 @@ public class UtkjoringId  implements java.io.Serializable {
          result = 37 * result + ( getBrukernavn() == null ? 0 : this.getBrukernavn().hashCode() );
          result = 37 * result + ( getSalgsnummer() == null ? 0 : this.getSalgsnummer().hashCode() );
          result = 37 * result + this.getBilnr();
-         result = 37 * result + ( getSjoforbrukernavn() == null ? 0 : this.getSjoforbrukernavn().hashCode() );
+         result = 37 * result + ( getSjoforBrukernavn() == null ? 0 : this.getSjoforBrukernavn().hashCode() );
          return result;
    }   
 

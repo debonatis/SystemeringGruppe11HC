@@ -1,5 +1,5 @@
 package Modell;
-// Generated 13.mar.2013 20:07:38 by Hibernate Tools 3.2.1.GA
+// Generated 03.apr.2013 13:17:58 by Hibernate Tools 3.2.1.GA
 
 
 import javax.persistence.Column;
@@ -26,7 +26,7 @@ public class OrdretabellId  implements java.io.Serializable {
     }
    
 
-    @Column(name="SALGSNUMMER", nullable=false, length=10)
+    @Column(name="salgsnummer", nullable=false, length=10)
     public String getSalgsnummer() {
         return this.salgsnummer;
     }
@@ -35,7 +35,7 @@ public class OrdretabellId  implements java.io.Serializable {
         this.salgsnummer = salgsnummer;
     }
 
-    @Column(name="SELGERBRUKERNAVN", nullable=false, length=10)
+    @Column(name="selgerbrukernavn", nullable=false, length=10)
     public String getSelgerbrukernavn() {
         return this.selgerbrukernavn;
     }
@@ -44,7 +44,7 @@ public class OrdretabellId  implements java.io.Serializable {
         this.selgerbrukernavn = selgerbrukernavn;
     }
 
-    @Column(name="KUNDEBRUKERNAVN", nullable=false, length=10)
+    @Column(name="kundebrukernavn", nullable=false, length=10)
     public String getKundebrukernavn() {
         return this.kundebrukernavn;
     }
