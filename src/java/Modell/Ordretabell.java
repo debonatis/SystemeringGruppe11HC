@@ -33,7 +33,7 @@ public class Ordretabell  implements java.io.Serializable {
      @EmbeddedId
     
     @AttributeOverrides( {
-        @AttributeOverride(name="salgsnummer", column=@Column(name="salgsnummer", nullable=false, length=10) ), 
+        @AttributeOverride(name="salgsnummer", column=@Column(name="salgsnummer", nullable=false, length=50) ), 
         @AttributeOverride(name="selgerbrukernavn", column=@Column(name="selgerbrukernavn", nullable=false, length=10) ), 
         @AttributeOverride(name="kundebrukernavn", column=@Column(name="kundebrukernavn", nullable=false, length=10) ) } )
     public OrdretabellId getId() {

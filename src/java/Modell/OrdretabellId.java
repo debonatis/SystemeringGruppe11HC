@@ -26,7 +26,7 @@ public class OrdretabellId  implements java.io.Serializable {
     }
    
 
-    @Column(name="salgsnummer", nullable=false, length=10)
+    @Column(name="salgsnummer", nullable=false, length=50)
     public String getSalgsnummer() {
         return this.salgsnummer;
     }

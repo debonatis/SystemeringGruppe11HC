@@ -4,7 +4,6 @@
  */
 package Bean;
 
-
 import Bean.util.JsfUtil;
 import Facade.OrdretabellFacade;
 import Facade.RetterFacade;
@@ -26,68 +25,64 @@ import org.primefaces.event.DragDropEvent;
  */
 @Named
 @SessionScoped
-public class Bestilling implements Serializable{   
-  
-    private List<Retter> retter;  
-  
-    private List<Retter> droppedRetters;  
+public class Bestilling implements Serializable {
+
+    private List<Retter> retter;
+    private List<Retter> droppedRetters;
     @EJB
     private RetterFacade retterFacade;
     @EJB
     private OrdretabellFacade ordreTabellFacade;
-    private Ordretabell ordre;    
+    private Ordretabell ordre;
     private OrdretabellId ordreId;
-    
-  
-    public Bestilling() {          
-        droppedRetters = new ArrayList<Retter>(); 
+
+    public Bestilling() {
+        droppedRetters = new ArrayList<Retter>();
         retter = new ArrayList(retterFacade.findAll());
         ordre = new Ordretabell();
         ordreId = new OrdretabellId();
-      
-    }  
-  
-   public void nullstill(){
-        retter = new ArrayList<Retter>();  
-        droppedRetters = new ArrayList<Retter>(); 
+
+    }
+
+    public void nullstill() {
+        retter = new ArrayList<Retter>();
+        droppedRetters = new ArrayList<Retter>();
         ordre = new Ordretabell();
         ordreId = new OrdretabellId();
-   }
-  
-    public List<Retter> getRetter() {  
-        return retter;  
-    }  
-  public void save() {
-        
-        ordreId = new OrdretabellId(String.valueOf(getUUID()), null, null);
-        
+    }
+
+    public List<Retter> getRetter() {
+        return retter;
+    }
+
+    public void save() {
+
+        ordreId = new OrdretabellId(String.valueOf(getUUID()), "simonD", "martinD");
+        //BrukerBehandling.getUser() skal stå istrendenfor martinD
+        for (int i = 0; i < droppedRetters.size(); i++) {
+            ordreTabellFacade.create(new Ordretabell(ordreId, droppedRetters.get(i).getRettnummer()));
+        }
 
 
-       
+
         JsfUtil.addMessage("You have a succsefull pick :");
-       
+
         nullstill();
     }
-      
-  public UUID getUUID(){
-      UUID idOne = UUID.randomUUID();
-      return  idOne;
-  }
-      
-  
-    
-  
-  
-  
-    public void onRetterDrop(DragDropEvent ddEvent) {  
-        Retter rett = ((Retter) ddEvent.getData());  
-  
-        droppedRetters.add(rett);  
-        retter.remove(rett);  
-    }  
-  
-    public List<Retter> getDroppedRetters() {  
-        return droppedRetters;  
-    }  
-}  
 
+    public UUID getUUID() {
+        UUID idOne = UUID.randomUUID();
+        return idOne;
+    }
+
+    public void onRetterDrop(DragDropEvent ddEvent) {
+        Retter rett = ((Retter) ddEvent.getData());
+
+        droppedRetters.add(rett);
+        retter.remove(rett);
+    }
+
+    public List<Retter> getDroppedRetters() {
+        return droppedRetters;
+    }
+}
