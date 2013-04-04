@@ -53,7 +53,7 @@ public class BrukerBehandling implements Serializable {
         return "NO ROLE, logging you out!";
     }
     
-    public String getUserData() {
+    public static String getUserData() {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
         Object forsporrselobject = context.getRequest();
         if (!(forsporrselobject instanceof HttpServletRequest)) {

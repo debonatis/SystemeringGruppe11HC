@@ -44,12 +44,12 @@
         <ui:define name="body">
             <h:form id="bestillingForm">  
 
-                <p:fieldset legend="tilgjengelige retter">  
+                <p:fieldset legend="Available Dishes">  
                     <p:dataTable id="availableDishes" var="rett" value="#{bestilling.retter}">  
                         <p:column style="width:20px">  
                             <h:outputText id="dragIcon"  
                                           styleClass="ui-icon ui-icon-arrow-4" />  
-                            <p:draggable for="dragIcon" revert="true" />  
+                            <p:draggable for="dragIcon" revert="true"/>  
                         </p:column>  
 
                         <p:column headerText="Dish number: ">  
@@ -82,9 +82,9 @@
                     </p:dataTable>  
                 </p:fieldset>  
 
-                <p:fieldset id="selectedRett" legend="Selected Dishes" style="margin-top:20px">  
+                <p:fieldset id="Rett" legend="Selected Dishes" style="margin-top:20px">  
                     <p:outputPanel id="dropArea">  
-                        <h:outputText value="!!!Drop here!!!"  
+                        <h:outputText value="!!!Drop your pick here!!!"  
                                       rendered="#{empty bestilling.droppedRetters}"  
                                       style="font-size:24px;" />  
 
@@ -121,8 +121,8 @@
 
                             <p:column style="width:32px">  
                                 <p:commandButton update=":bestillingForm:display"  
-                                                 oncomplete="carDialog.show()"  
-                                                 icon="ui-icon-search">  
+                                                 oncomplete="rettDialog.show()"
+                                                 >  
                                     <f:setPropertyActionListener value="#{rett}"  
                                                                  target="#{bestilling.selected}" />  
                                 </p:commandButton>  
@@ -131,9 +131,10 @@
                     </p:outputPanel>  
                 </p:fieldset>  
 
-                <p:droppable for="selectedRett" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availableDishes" onDrop="handleDrop">  
+                <p:droppable for="Rett" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availableDishes" onDrop="handleDrop">  
                     <p:ajax listener="#{bestilling.onRetterDrop}" update="dropArea availableDishes" />  
                 </p:droppable>  
+                <p:commandButton action="#{bestilling.save()}" value="Save" />
 
                 <p:dialog header="Dish Detail" widgetVar="rettDialog" resizable="false" draggable="false"  
                           width="200" showEffect="fade" hideEffect="fade" modal="true">  

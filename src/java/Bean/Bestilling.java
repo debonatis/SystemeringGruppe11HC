@@ -11,7 +11,7 @@ import Modell.Ordretabell;
 import Modell.OrdretabellId;
 import Modell.Retter;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import javax.ejb.EJB;
@@ -32,7 +32,7 @@ public class Bestilling implements Serializable {
     @EJB
     private RetterFacade retterFacade;
     @EJB
-    private OrdretabellFacade ordreTabellFacade;
+    private OrdretabellFacade ordretabellFacade;
     private Ordretabell ordre;
     private OrdretabellId ordreId;
     private Retter selected;
@@ -45,37 +45,44 @@ public class Bestilling implements Serializable {
         this.selected = selected;
     }
 
-    public Bestilling() {        
-        retter = retterFacade.findAll();
+    public Bestilling() {
+
         ordre = new Ordretabell();
         ordreId = new OrdretabellId();
 
     }
 
     public void nullstill() {
-        retter.clear();
-        droppedRetters.clear();
+        retter = retterFacade.findAll();
         ordre = new Ordretabell();
         ordreId = new OrdretabellId();
+        droppedRetters.clear();
     }
 
     public List<Retter> getRetter() {
+        retter = retterFacade.findAll();
         return retter;
     }
 
-    public void save() {
+    public void refresh() {
+        retter = retterFacade.findAll();
+    }
 
-        ordreId = new OrdretabellId(String.valueOf(getUUID()), "simonD", "martinD");
-        //BrukerBehandling.getUser() skal stå istrendenfor martinD
-        for (int i = 0; i < droppedRetters.size(); i++) {
-            ordreTabellFacade.create(new Ordretabell(ordreId, droppedRetters.get(i).getRettnummer()));
+    public void save() {
+        if (!droppedRetters.isEmpty()) {
+            ordreId = new OrdretabellId(String.valueOf(getUUID()), "simonD", BrukerBehandling.getUserData());
+            //BrukerBehandling.getUser() skal stå istrendenfor marti
+            for (Iterator c = droppedRetters.iterator(); c.hasNext();) {
+                Retter e = (Retter) c.next();
+                ordretabellFacade.create(new Ordretabell(ordreId, e.getRettnummer()));
+            }
+            JsfUtil.addMessage("You have a succsefull pick :");
+            nullstill();
+
+        } else if (droppedRetters.isEmpty()) {
+            JsfUtil.addMessage("You have a to pick something to have a succsefull pick :");
         }
 
-
-
-        JsfUtil.addMessage("You have a succsefull pick :");
-
-        nullstill();
     }
 
     public UUID getUUID() {
@@ -85,7 +92,6 @@ public class Bestilling implements Serializable {
 
     public void onRetterDrop(DragDropEvent ddEvent) {
         Retter rett = ((Retter) ddEvent.getData());
-
         droppedRetters.add(rett);
         retter.remove(rett);
     }
