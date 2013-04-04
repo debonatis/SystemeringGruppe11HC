@@ -74,10 +74,13 @@
         </form-login-config>
     </login-config>
     <security-role>
-        <role-name>bruker</role-name>        
+        <role-name>user</role-name>        
     </security-role> 
     <security-role>
         <role-name>admin</role-name>
+    </security-role>
+    <security-role>
+        <role-name>customer</role-name>
     </security-role>
     <error-page>
         <error-code>403</error-code>

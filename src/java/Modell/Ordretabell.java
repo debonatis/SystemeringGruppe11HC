@@ -21,6 +21,7 @@ public class Ordretabell  implements java.io.Serializable {
 
      private OrdretabellId id;
      private String rettnummer;
+     private String status;
 
     public Ordretabell() {
     }
@@ -50,6 +51,15 @@ public class Ordretabell  implements java.io.Serializable {
     }
     
     public void setRettnummer(String rettnummer) {
+        this.rettnummer = rettnummer;
+    }
+    
+     @Column(name="status", nullable=false, length=20)
+    public String getStatus() {
+        return this.status;
+    }
+    
+    public void setStatus(String rettnummer) {
         this.rettnummer = rettnummer;
     }
 
