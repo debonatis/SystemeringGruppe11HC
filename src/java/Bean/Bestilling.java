@@ -35,18 +35,26 @@ public class Bestilling implements Serializable {
     private OrdretabellFacade ordreTabellFacade;
     private Ordretabell ordre;
     private OrdretabellId ordreId;
+    private Retter selected;
 
-    public Bestilling() {
-        droppedRetters = new ArrayList<Retter>();
-        retter = new ArrayList(retterFacade.findAll());
+    public Retter getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Retter selected) {
+        this.selected = selected;
+    }
+
+    public Bestilling() {        
+        retter = retterFacade.findAll();
         ordre = new Ordretabell();
         ordreId = new OrdretabellId();
 
     }
 
     public void nullstill() {
-        retter = new ArrayList<Retter>();
-        droppedRetters = new ArrayList<Retter>();
+        retter.clear();
+        droppedRetters.clear();
         ordre = new Ordretabell();
         ordreId = new OrdretabellId();
     }
